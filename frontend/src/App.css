@@ -1,0 +1,48 @@
+/* Clean styles for the chatbot */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Chat animations */
+@keyframes expandFromCircle {
+  0% {
+    transform: scale(0.05);
+    opacity: 0.3;
+    border-radius: 50%;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    border-radius: 15px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .chat-widget-container {
+    bottom: 15px !important;
+    right: 15px !important;
+  }
+  
+  .chat-button {
+    width: 60px !important;
+    height: 60px !important;
+    font-size: 20px !important;
+  }
+}
