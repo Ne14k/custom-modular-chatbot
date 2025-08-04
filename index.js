@@ -2,6 +2,8 @@ const ChatbotEngine = require('./core/chatbot-engine');
 const ConversationManager = require('./core/conversation-manager');
 const MessageHandler = require('./core/message-handler');
 const GeminiProvider = require('./providers/gemini-provider');
+const CodeAssistantProvider = require('./providers/code-assistant-provider');
+const CreativeWriterProvider = require('./providers/creative-writer-provider');
 
 class CustomModularChatbot {
   constructor(config = {}) {
@@ -35,6 +37,20 @@ class CustomModularChatbot {
     });
   }
 
+  // New method for task-based message sending
+  async sendMessageWithTaskDetection(conversationId, message) {
+    // Use task router to detect the appropriate provider
+    const taskRouter = this.engine.middleware.find(m => m.constructor.name === 'TaskRouter');
+    if (taskRouter) {
+      const task = taskRouter.detectTask(message);
+      const provider = taskRouter.getTaskProvider(task);
+      return await this.sendMessage(conversationId, message, provider);
+    }
+    
+    // Fallback to default provider
+    return await this.sendMessage(conversationId, message, 'default');
+  }
+
   getConversation(conversationId) {
     return this.conversationManager.getConversation(conversationId);
   }
@@ -45,6 +61,20 @@ class CustomModularChatbot {
 
   getActiveConversations() {
     return this.conversationManager.getActiveConversations();
+  }
+
+  // New method to get available agents
+  getAvailableAgents() {
+    const agents = [];
+    for (const [name, provider] of this.engine.providers) {
+      const info = provider.getModelInfo();
+      agents.push({
+        name: name,
+        capabilities: info.capabilities || [],
+        description: info.description || `Agent: ${name}`
+      });
+    }
+    return agents;
   }
 
   on(event, callback) {
@@ -81,5 +111,7 @@ module.exports = {
   ChatbotEngine,
   ConversationManager,
   MessageHandler,
-  GeminiProvider
+  GeminiProvider,
+  CodeAssistantProvider,
+  CreativeWriterProvider
 };
