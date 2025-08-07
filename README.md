@@ -9,3 +9,4 @@ A customizable, embeddable AI chatbot widget for modern websites. Designed to be
 - 🔄 Modular architecture — swap out models, UI, or training data
 - 🗃️ Company-specific knowledge training
 - 💬 Pop-up chat window with persistent history
+# clinic_agentic_chatbot
