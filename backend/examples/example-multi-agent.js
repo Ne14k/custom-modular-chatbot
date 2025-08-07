@@ -4,8 +4,8 @@ const {
   GeminiProvider, 
   CodeAssistantProvider, 
   CreativeWriterProvider 
-} = require('./index');
-const TaskRouter = require('./middleware/task-router');
+} = require('../index');
+const TaskRouter = require('../middleware/task-router');
 
 async function multiAgentExample() {
   const chatbot = new CustomModularChatbot({

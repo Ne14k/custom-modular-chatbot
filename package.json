@@ -2,12 +2,12 @@
   "name": "custom-modular-chatbot",
   "version": "1.0.0",
   "description": "A modular chatbot framework supporting multiple AI providers",
-  "main": "index.js",
+  "main": "backend/index.js",
   "scripts": {
-    "start": "PORT=3002 node server.js",
-    "dev": "PORT=3002 node --watch server.js",
-    "test": "node test-basic.js",
-    "example": "node example.js"
+    "start": "PORT=3002 node backend/server.js",
+    "dev": "PORT=3002 node --watch backend/server.js",
+    "test": "node backend/tests/test-basic.js",
+    "example": "node backend/examples/example.js"
   },
   "keywords": [
     "chatbot",

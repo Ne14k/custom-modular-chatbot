@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { CustomModularChatbot, GeminiProvider } = require('./index');
+const { CustomModularChatbot, GeminiProvider } = require('../index');
 
 async function simpleTest() {
   console.log('🤖 Testing Google Gemini Integration');
