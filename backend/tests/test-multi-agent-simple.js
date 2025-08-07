@@ -3,8 +3,8 @@ const {
   CustomModularChatbot, 
   CodeAssistantProvider, 
   CreativeWriterProvider 
-} = require('./index');
-const TaskRouter = require('./middleware/task-router');
+} = require('../index');
+const TaskRouter = require('../middleware/task-router');
 
 // Mock provider for testing
 class MockProvider {

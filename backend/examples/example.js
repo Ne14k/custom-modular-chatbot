@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { CustomModularChatbot, GeminiProvider } = require('./index');
+const { CustomModularChatbot, GeminiProvider } = require('../index');
 
 async function example() {
   const chatbot = new CustomModularChatbot({

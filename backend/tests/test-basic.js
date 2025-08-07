@@ -1,5 +1,5 @@
-const { CustomModularChatbot } = require('./index');
-const { RateLimiter, ContentFilter, Logger } = require('./middleware');
+const { CustomModularChatbot } = require('../index');
+const { RateLimiter, ContentFilter, Logger } = require('../middleware');
 
 // Mock provider for testing without API keys
 class MockProvider {
