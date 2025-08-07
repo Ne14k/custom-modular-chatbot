@@ -19,7 +19,9 @@
   },
   "scripts": {
     "start": "PORT=5001 react-scripts start",
-    "dev": "PORT=5001 react-scripts start",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "frontend": "PORT=5001 react-scripts start",
+    "backend": "cd .. && PORT=3002 node --watch backend/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -41,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0"
   }
 }
