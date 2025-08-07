@@ -150,7 +150,7 @@ app.get('/', (req, res) => {
         conversation: 'GET /api/conversation/:id',
         conversations: 'GET /api/conversations'
       },
-      frontend: 'http://localhost:3003',
+      frontend: 'http://localhost:5001',
       documentation: 'See README.md for full API documentation'
     });
   } else {
@@ -203,14 +203,14 @@ app.get('/', (req, res) => {
           
           <h2>🎨 Frontend Interface</h2>
           <p>
-            <a href="http://localhost:3003" class="link">Open Chat Interface →</a><br>
+            <a href="http://localhost:5001" class="link">Open Chat Interface →</a><br>
             <small>Start the React frontend to interact with the chatbot through a beautiful UI</small>
           </p>
           
           <h2>🚀 Quick Start</h2>
           <div class="endpoint">
             <strong>Start Frontend:</strong><br>
-            <code>cd frontend && PORT=3003 npm start</code>
+            <code>cd frontend && PORT=5001 npm start</code>
           </div>
           
           <div class="endpoint">
